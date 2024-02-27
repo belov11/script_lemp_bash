@@ -180,7 +180,7 @@ http_port="80"
 https_port="443"
 
 function allow-port {
-    if ! ss -tulpen | grep "0.0.0.0:$1" >/dev/null; then
+    if ! sudo ufw status | grep "0.0.0.0:$1" >/dev/null; then
         sudo ufw allow $1/tcp
     fi
 }
