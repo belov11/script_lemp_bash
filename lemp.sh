@@ -112,7 +112,7 @@ check-and-change-value-neg-condition $apache_running_port $apache_path_ports_con
 #Setting nginx create folder for ssl cert, generate cert and create new nginx config file for https running
 if ! sudo test -d $nginx_path_cert; then
     sudo mkdir $nginx_path_cert
-    sudo chmod 755 $nginx_path_cert
+    sudo chmod 700 $nginx_path_cert
 fi
 
 if ! sudo test -f $nginx_path_cert/$nginx_public_key && ! sudo test -f $nginx_path_cert/$nginx_private_key; then
