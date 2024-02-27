@@ -116,7 +116,7 @@ if ! sudo test -d $nginx_path_cert; then
 fi
 
 if ! sudo test -f $nginx_path_cert/$nginx_public_key && ! sudo test -f $nginx_path_cert/$nginx_private_key; then
-    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout $nginx_path_cert/$nginx_private_key -out $nginx_path_cert/$nginx_public_key
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout $nginx_path_cert/$nginx_private_key -out $nginx_path_cert/$nginx_public_key "/C=/ST=/L=/O=/OU=/CN="
 fi
 
 if ! echo "$nginx_config_file"  | diff - $nginx_path_config >/dev/null; then
